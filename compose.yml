@@ -1,0 +1,11 @@
+services:
+  database:
+    container_name: database
+    image: mysql:8.0.27
+    environment:
+      - MYSQL_ROOT_PASSWORD=examplepassword
+      - MYSQL_DATABASE=finance
+      - MYSQL_USER=labes
+      - MYSQL_PASSWORD=labes
+    ports:
+      - "3306:3306"

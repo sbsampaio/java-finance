@@ -21,6 +21,23 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
+    <!-- AdminFaces filter mapping -->
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.github.adminfaces.template.filter.AdminFilter</filter-class>
+        <init-param>
+            <param-name>admin.ignoredResources</param-name>
+            <param-value>/public,/resources,/install</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+
     <!-- JSF and PrimeFaces configuration. -->
     <context-param>
         <param-name>jakarta.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
@@ -46,12 +63,13 @@
 
     <!-- Datasource configuration. -->
     <data-source>
-        <name>java:app/datasources/oldenburg</name>
+        <name>java:app/datasources/finance</name>
         <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
         <server-name>localhost</server-name>
         <port-number>3306</port-number>
-        <database-name>oldenburg</database-name>
+        <database-name>finance</database-name>
         <user>labes</user>
         <password><![CDATA[labes]]></password>
     </data-source>
+
 </web-app>

@@ -102,6 +102,9 @@
           <groupId>org.wildfly.plugins</groupId>
           <artifactId>wildfly-maven-plugin</artifactId>
           <version>4.2.2.Final</version>
+          <configuration>
+            <jboss-home>${env.WILDFLY_HOME}</jboss-home>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
